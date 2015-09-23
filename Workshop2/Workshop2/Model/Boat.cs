@@ -14,5 +14,18 @@ namespace Workshop2.Model
         {
             length = Length;
         }
+
+        public double Length
+        {
+            get
+            {
+                return length;
+            }
+            set
+            {
+                length = value;
+            }
+        }
+
     }
 }
