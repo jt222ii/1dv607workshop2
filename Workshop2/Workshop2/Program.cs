@@ -10,7 +10,7 @@ namespace Workshop2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hej´penis");
+            Console.WriteLine("hej´peniasds");
         }
     }
 }
