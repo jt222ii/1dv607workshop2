@@ -17,6 +17,8 @@ namespace Workshop2
 
             Console.WriteLine("hej ja e adam");
 
+            Console.WriteLine("hej ja e adam igennnn");
+
         }
     }
 }
