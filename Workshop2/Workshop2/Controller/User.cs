@@ -8,5 +8,6 @@ namespace Workshop2.Controller
 {
     class User
     {
+        Console.WriteLine("detta är ändringen");
     }
 }
