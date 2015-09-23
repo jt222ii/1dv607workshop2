@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Workshop2.Model;
 
 namespace Workshop2
 {
@@ -15,6 +16,10 @@ namespace Workshop2
             Console.WriteLine("hahahahahaahha");
             Console.WriteLine("hej ja e adam");
             Console.WriteLine("hej ja e adam igennnn");
+            Boat boat = new Boat(123);
+            Console.WriteLine(boat.Length+ "innan ändring pål");
+            boat.Length = 80085;
+            Console.WriteLine(boat.Length + "efter ändring pelle");
         }
     }
 }
