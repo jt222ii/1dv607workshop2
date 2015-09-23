@@ -11,6 +11,7 @@ namespace Workshop2
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             Console.WriteLine("Byter branch");
             Console.WriteLine("dasads");
             Console.WriteLine("hahahahahaahha");
@@ -20,6 +21,11 @@ namespace Workshop2
             Console.WriteLine(boat.Length+ "innan ändring pål");
             boat.Length = 80085;
             Console.WriteLine(boat.Length + "efter ändring pelle");
+=======
+            Controller.User u = new Controller.User();
+
+            u.StartApplication();
+>>>>>>> Adam
         }
     }
 }
