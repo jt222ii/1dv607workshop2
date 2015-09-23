@@ -10,15 +10,9 @@ namespace Workshop2
     {
         static void Main(string[] args)
         {
+            Controller.User u = new Controller.User();
 
-            Console.WriteLine("dasads");
-            Console.WriteLine("hahahahahaahha");
-
-
-            Console.WriteLine("hej ja e adam");
-
-            Console.WriteLine("hej ja e adam igennnn");
-
+            u.StartApplication();
         }
     }
 }
