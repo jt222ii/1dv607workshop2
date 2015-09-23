@@ -11,6 +11,7 @@ namespace Workshop2
         static void Main(string[] args)
         {
             Console.WriteLine("dasads");
+            Console.WriteLine("hahahahahaahha");
         }
     }
 }
