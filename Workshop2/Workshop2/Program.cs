@@ -20,7 +20,12 @@ namespace Workshop2
 
             Console.WriteLine("hej ja e adam");
 
+<<<<<<< HEAD
+            Console.WriteLine("hej ja e adam igennnn");
+
+=======
 >>>>>>> master
+>>>>>>> origin/master
         }
     }
 }
