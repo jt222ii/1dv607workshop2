@@ -8,5 +8,6 @@ namespace Workshop2.Model
 {
     class Boat
     {
+        private string boatfucker;
     }
 }
