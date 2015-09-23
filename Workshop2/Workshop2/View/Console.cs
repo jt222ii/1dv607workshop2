@@ -8,5 +8,6 @@ namespace Workshop2.View
 {
     class Console
     {
+        
     }
 }
