@@ -40,6 +40,11 @@ namespace Workshop2.Model
              LastName = lName;
              SSN = ssn;
              //_memberID = memberID; //unikt id hur?
+
+             //sparar ner medlemen i en textfil behöver rensa den när vi implementerar id.
+             string path = @"../../members.txt";
+             string memberString = String.Format("[First name]: {0}, [Last name]: {1}, [SSN] {2}\n", fName,lName, ssn);
+             System.IO.File.AppendAllText(path, memberString);
          }
 
          public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
