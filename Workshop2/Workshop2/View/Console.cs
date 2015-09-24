@@ -8,6 +8,11 @@ namespace Workshop2.View
 {
     class Console
     {
+        public void DisplayInstructions()
+        {
+
+            System.Console.WriteLine("Here are instruascthasn");
         
+        }
     }
 }
