@@ -10,7 +10,11 @@ namespace Workshop2.Controller
     {
         public void StartApplication()
         {
-            
+            View.Console c = new View.Console();
+
+            c.DisplayInstructions();
+
+
         }
     }
 }
