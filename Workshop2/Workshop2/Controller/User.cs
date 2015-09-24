@@ -33,19 +33,19 @@ namespace Workshop2.Controller
                     Console.Clear();
                     while (true)
                     {
-                        try
-                        {
+                        //try
+                        //{
                             string name = c.GetUserInput();
                             string lastName = c.GetUserInput();
                             int SSN = Convert.ToInt32(c.GetUserInput());
                             m = new Member(name, lastName, SSN);
                             Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
                             break;
-                        }
-                        catch
-                        {
-                            Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
-                        }
+                        //}
+                        //catch
+                        //{
+                        //    Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
+                        //}
                     }
 
                     //testkod för ändring av medlem
