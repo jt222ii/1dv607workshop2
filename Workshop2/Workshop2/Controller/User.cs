@@ -12,7 +12,7 @@ namespace Workshop2.Controller
         public void StartApplication()
         {
             View.Console c = new View.Console();
-            Member m = new Member();
+            Member m; //= new Member();
             Boat b = new Boat();
 
             c.DisplayInstructions();
@@ -27,9 +27,15 @@ namespace Workshop2.Controller
                     break;
                 case 1:
                     //Gör nåt annat
+                    Console.WriteLine("You are now swaglord");
                     break;
                 case 2:
-                    //EHHHH
+                    string name = c.GetUserInput();
+                    string lastName = c.GetUserInput();
+                    int SSN = Convert.ToInt32(c.GetUserInput());
+
+                    m = new Member(name, lastName, SSN);
+                    Console.WriteLine(m.FirstName);
                     break;
             }
         }

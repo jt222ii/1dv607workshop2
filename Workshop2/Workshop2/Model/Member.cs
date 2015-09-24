@@ -9,32 +9,32 @@ namespace Workshop2.Model
     class Member
     {
         private int memberID;
-        private string firstName;
-        private string lastName;
-        private int sSN;
+        private string _firstName = "";
+        private string _lastName = "";
+        private int _SSN;
 
          public string FirstName
         {
-            get {return firstName; }
-            set {value = firstName;}
+            get {return _firstName; }
+            set { _firstName = value; }
         }
 
          public string LastName
          {
-             get { return lastName; }
-             set { value = lastName; }
+             get { return _lastName; }
+             set { _lastName = value; }
          }
          public int SSN
          {
-             get { return sSN; }
-             set { value = sSN; }
+             get { return _SSN; }
+             set { _SSN = value; }
          }
 
-         public Member()
+         public Member(string fName, string lName, int ssn)
          {
-
+             FirstName = fName;
+             LastName = lName;
+             SSN = ssn;
          }
-
-
     }
 }
