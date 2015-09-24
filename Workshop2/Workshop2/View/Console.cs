@@ -12,7 +12,16 @@ namespace Workshop2.View
         {
 
             System.Console.WriteLine("Here are instruascthasn");
+            System.Console.WriteLine("Press '0' to quit the application.");
         
         }
+
+        public int GetUserChoice()
+        {
+            int input = Convert.ToInt32(System.Console.ReadLine());
+
+            return input;
+        }
+   
     }
 }

@@ -16,6 +16,11 @@ namespace Workshop2.Model
             Other
         }
 
+        public Boat()
+        {
+ 
+        }
+
         private double length;
 
         public Boat(double Length)
