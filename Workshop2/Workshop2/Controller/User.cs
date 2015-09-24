@@ -30,12 +30,33 @@ namespace Workshop2.Controller
                     Console.WriteLine("You are now swaglord");
                     break;
                 case 2:
-                    string name = c.GetUserInput();
-                    string lastName = c.GetUserInput();
-                    int SSN = Convert.ToInt32(c.GetUserInput());
+                    Console.Clear();
+                    while (true)
+                    {
+                        try
+                        {
+                            string name = c.GetUserInput();
+                            string lastName = c.GetUserInput();
+                            int SSN = Convert.ToInt32(c.GetUserInput());
+                            m = new Member(name, lastName, SSN);
+                            Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
+                        }
+                    }
 
-                    m = new Member(name, lastName, SSN);
-                    Console.WriteLine(m.FirstName);
+                    //test kod för ändring av medlem
+                    c.testInstructions();
+                    string newName = c.GetUserInput();
+                    string newLastName = c.GetUserInput();
+                    string newSSN = c.GetUserInput(); // vill ha int fan men går inte att skriva in null värde för int med "int? newSSN = Convert.ToInt32(c.GetUserInput());"
+                    m.UpdateMember(newName, newLastName, newSSN);
+                    Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
+                    //slut på testkod
+
                     break;
             }
         }
