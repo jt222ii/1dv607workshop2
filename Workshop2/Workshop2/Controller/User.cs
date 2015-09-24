@@ -48,7 +48,7 @@ namespace Workshop2.Controller
                         }
                     }
 
-                    //test kod för ändring av medlem
+                    //testkod för ändring av medlem
                     c.testInstructions();
                     string newName = c.GetUserInput();
                     string newLastName = c.GetUserInput();
