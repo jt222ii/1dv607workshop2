@@ -8,33 +8,61 @@ namespace Workshop2.Model
 {
     class Member
     {
-        private int memberID;
-        private string firstName;
-        private string lastName;
-        private int sSN;
+        private int _memberID;
+        private string _firstName = "";
+        private string _lastName = "";
+        private int _SSN;
 
          public string FirstName
         {
-            get {return firstName; }
-            set {value = firstName;}
+            get {return _firstName; }
+            set { _firstName = value; }
         }
 
          public string LastName
          {
-             get { return lastName; }
-             set { value = lastName; }
+             get { return _lastName; }
+             set { _lastName = value; }
          }
          public int SSN
          {
-             get { return sSN; }
-             set { value = sSN; }
+             get { return _SSN; }
+             set { _SSN = value; }
          }
 
-         public Member()
+         public Member(string fName, string lName, int ssn)
          {
+             if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
+             {
+                 throw new Exception();
+             }
+             FirstName = fName;
+             LastName = lName;
+             SSN = ssn;
+             //_memberID = memberID; //unikt id hur? 
+             //Första bokstav i för och efternamn och slumpa en sifferkombination kanske? 
 
+
+             //sparar ner medlemen i en textfil behöver rensa den när vi implementerar id.
+             string path = @"../../members.txt";
+             string memberString = String.Format("[First name]: {0}, [Last name]: {1}, [SSN] {2}\n", fName,lName, ssn);
+             System.IO.File.AppendAllText(path, memberString);
          }
 
-
+         public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
+         {
+             if (!String.IsNullOrWhiteSpace(fName))
+             {
+                 FirstName = fName;
+             }
+             if (!String.IsNullOrWhiteSpace(lName))
+             {
+                 LastName = lName;
+             }
+             if (!String.IsNullOrWhiteSpace(ssn))
+             {
+                 SSN = int.Parse(ssn);
+             }
+         }
     }
 }

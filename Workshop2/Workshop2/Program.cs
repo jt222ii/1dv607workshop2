@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Workshop2.Controller;
+using Workshop2.Model;
 
 namespace Workshop2
 {
@@ -10,7 +12,7 @@ namespace Workshop2
     {
         static void Main(string[] args)
         {
-            Controller.User u = new Controller.User();
+            User u = new Controller.User();
 
             u.StartApplication();
         }
