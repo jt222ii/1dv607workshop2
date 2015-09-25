@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,11 @@ namespace Workshop2.Model
 {
     class Member
     {
-        private int _memberID;
-        private string _firstName = "";
-        private string _lastName = "";
+        private string _memberID;
+        private string _firstName;
+        private string _lastName;
         private int _SSN;
+
 
          public string FirstName
         {
@@ -30,23 +32,38 @@ namespace Workshop2.Model
              set { _SSN = value; }
          }
 
-         public Member(string fName, string lName, int ssn)
+         public Member(string fName, string lName, int ssn, int? id = null)
          {
+             MemberDAL mDAL = new MemberDAL(); 
+
              if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
              {
                  throw new Exception();
              }
+        
              FirstName = fName;
              LastName = lName;
              SSN = ssn;
+
+             if (id == 0)
+             {
+                 //string unique = Guid.NewGuid().ToString();
+                 //Console.WriteLine(unique);
+                 
+
+                 mDAL.SaveMemberToTxt(fName, lName, ssn);
+             }
+
              //_memberID = memberID; //unikt id hur? 
              //Första bokstav i för och efternamn och slumpa en sifferkombination kanske? 
 
-
              //sparar ner medlemen i en textfil behöver rensa den när vi implementerar id.
+<<<<<<< HEAD
              string path = @"members.txt";
              string memberString = String.Format("[First name]: {0}, [Last name]: {1}, [SSN] {2}\n", fName,lName, ssn);
              System.IO.File.AppendAllText(path, memberString);
+=======
+>>>>>>> master
          }
 
          public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
@@ -64,5 +81,12 @@ namespace Workshop2.Model
                  SSN = int.Parse(ssn);
              }
          }
+
+
+
+         
+         }
     }
-}
+
+
+
