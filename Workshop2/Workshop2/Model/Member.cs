@@ -39,7 +39,9 @@ namespace Workshop2.Model
              FirstName = fName;
              LastName = lName;
              SSN = ssn;
-             //_memberID = memberID; //unikt id hur?
+             //_memberID = memberID; //unikt id hur? 
+             //Första bokstav i för och efternamn och slumpa en sifferkombination kanske? 
+
 
              //sparar ner medlemen i en textfil behöver rensa den när vi implementerar id.
              string path = @"../../members.txt";

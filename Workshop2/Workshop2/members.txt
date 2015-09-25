@@ -1,2 +1,5 @@
 [First name]: hej, [Last name]: hej, [SSN] 123
 [First name]: hej, [Last name]: pellesven, [SSN] 1232323
+[First name]: gun, [Last name]: greddelin, [SSN] 420
+[First name]: knuff, [Last name]: knuff, [SSN] 19
+[First name]: hej, [Last name]: hejpådej, [SSN] 16
