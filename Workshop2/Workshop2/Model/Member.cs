@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Workshop2.Model
 {
+    //https://msdn.microsoft.com/en-us/library/ms973893.aspx
+    //https://msdn.microsoft.com/en-us/library/c5sbs8z9(v=vs.110).aspx
+    [Serializable]//fixa så skiten fungerar 
     class Member
     {
         private string _memberID;
