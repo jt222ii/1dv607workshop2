@@ -12,9 +12,10 @@ namespace Workshop2.Controller
         public void StartApplication()
         {
             View.Console c = new View.Console();
-            Member m; //= new Member();
+            Member m; 
             Boat b = new Boat();
-
+            MemberDAL mDAL = new MemberDAL();
+            mDAL.LoadMembersFromTxt();
             c.DisplayInstructions();
 
             int userInput = c.GetUserChoice();
@@ -39,14 +40,17 @@ namespace Workshop2.Controller
                             string lastName = c.GetUserInput();
                             int SSN = Convert.ToInt32(c.GetUserInput());
                             m = new Member(name, lastName, SSN);
+                            
                             Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
                             break;
                         }
                         catch
                         {
+                            
                             Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
                         }
                     }
+          
 
                     //testkod för ändring av medlem
                     c.testInstructions();
