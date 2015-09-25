@@ -44,7 +44,7 @@ namespace Workshop2.Model
 
 
              //sparar ner medlemen i en textfil behöver rensa den när vi implementerar id.
-             string path = @"../../members.txt";
+             string path = @"members.txt";
              string memberString = String.Format("[First name]: {0}, [Last name]: {1}, [SSN] {2}\n", fName,lName, ssn);
              System.IO.File.AppendAllText(path, memberString);
          }
