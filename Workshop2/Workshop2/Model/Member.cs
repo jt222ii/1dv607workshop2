@@ -34,33 +34,23 @@ namespace Workshop2.Model
              get { return _SSN; }
              set { _SSN = value; }
          }
-
-         public Member(string fName, string lName, int ssn, int? id = null)
+         public string MemberID
          {
-             MemberDAL mDAL = new MemberDAL(); 
+             get { return _memberID; }
+         }
+
+         public Member(string fName, string lName, int ssn)
+         {
+             MemberDAL mDAL = new MemberDAL();
 
              if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
              {
                  throw new Exception();
              }
-        
              FirstName = fName;
              LastName = lName;
              SSN = ssn;
-
-             if (id == 0)
-             {
-                 //string unique = Guid.NewGuid().ToString();
-                 //Console.WriteLine(unique);
-                 
-
-                 mDAL.SaveMemberToTxt(fName, lName, ssn);
-             }
-
-             //_memberID = memberID; //unikt id hur? 
-             //Första bokstav i för och efternamn och slumpa en sifferkombination kanske? 
-
-             //sparar ner medlemen i en textfil behöver rensa den när vi implementerar id.
+             _memberID = Guid.NewGuid().ToString();            
          }
 
          public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
