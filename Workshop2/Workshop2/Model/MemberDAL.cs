@@ -84,7 +84,10 @@ namespace Workshop2.Model
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("MemberBin.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             memberList = (List<Member>)formatter.Deserialize(stream);
-            //test
+            stream.Close();
+
+
+            //test ska tas bort. Vill bara se så allt sparas
             foreach (Member member in memberList)
             {
                 Console.WriteLine("{0}, {1}, {2}",
@@ -92,8 +95,8 @@ namespace Workshop2.Model
                     member.LastName,
                     member.SSN);
             }
+            //slut på test
 
-            stream.Close();
 
         }
 

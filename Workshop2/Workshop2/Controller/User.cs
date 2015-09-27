@@ -41,7 +41,7 @@ namespace Workshop2.Controller
                             string lastName = c.GetUserInput();
                             int SSN = Convert.ToInt32(c.GetUserInput());
                             m = new Member(name, lastName, SSN);
-                            
+                            mDAL.addMemberToList(m);
                             Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
                             break;
                         }

@@ -57,7 +57,7 @@ namespace Workshop2.Model
                  //mDAL.SaveMemberToTxt(fName, lName, ssn);
                  
              }
-             mDAL.addMemberToList(this);
+            // mDAL.addMemberToList(this);
              //_memberID = memberID; //unikt id hur? 
              //Första bokstav i för och efternamn och slumpa en sifferkombination kanske? 
 
