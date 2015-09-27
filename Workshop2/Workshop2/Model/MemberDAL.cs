@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,6 +62,40 @@ namespace Workshop2.Model
             System.IO.File.AppendAllText(_path, memberString);
         }
 
+        public void addMemberToList(Member member)
+        {
+            memberList.Add(member);
+            SaveMembersToBin(); // behöver nog bara spara när man stänger av programmet
+        }
+
+
+        //http://www.dotnetperls.com/serialize-list
+        public void SaveMembersToBin()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MemberBin.bin",
+                                     FileMode.Create,
+                                     FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, memberList);
+            stream.Close();
+        }
+        public void LoadMembersFromBin() 
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MemberBin.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            memberList = (List<Member>)formatter.Deserialize(stream);
+            //test
+            foreach (Member member in memberList)
+            {
+                Console.WriteLine("{0}, {1}, {2}",
+                    member.FirstName,
+                    member.LastName,
+                    member.SSN);
+            }
+
+            stream.Close();
+
+        }
 
 
     }

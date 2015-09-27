@@ -15,7 +15,8 @@ namespace Workshop2.Controller
             Member m; 
             Boat b = new Boat();
             MemberDAL mDAL = new MemberDAL();
-            mDAL.LoadMembersFromTxt();
+            //mDAL.LoadMembersFromTxt();
+            mDAL.LoadMembersFromBin();
             c.DisplayInstructions();
 
             int userInput = c.GetUserChoice();
