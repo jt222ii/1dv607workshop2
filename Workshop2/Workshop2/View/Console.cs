@@ -9,6 +9,11 @@ namespace Workshop2.View
 {
     class Console
     {
+        MemberDAL mDAL;
+        public Console(MemberDAL mD)
+        {
+            mDAL = mD;
+        }
         public void DisplayInstructions()
         {
             System.Console.WriteLine("Here are instruascthasn");
@@ -47,6 +52,17 @@ namespace Workshop2.View
                System. Console.WriteLine("════════════════════════════════════════════════════");
             }
         }
-   
+
+        public void showMember(IReadOnlyCollection<Member> list, int choice)
+        {
+            Member member = list.ElementAt(choice);
+            System.Console.WriteLine("{0}, {1}", member.FirstName, member.LastName);
+
+            System.Console.WriteLine("What do you want to do? 1 for delete");
+            if (GetUserChoice() == 1)
+            {
+                mDAL.removeMemberFromList(choice);
+            }
+        }
     }
 }

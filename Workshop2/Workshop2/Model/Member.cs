@@ -44,7 +44,6 @@ namespace Workshop2.Model
 
         public Member(string fName, string lName, int ssn)
         {
-            MemberDAL mDAL = new MemberDAL();
 
             if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
             {
