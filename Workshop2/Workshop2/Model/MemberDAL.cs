@@ -49,10 +49,7 @@ namespace Workshop2.Model
                 Console.WriteLine("Listan är tom och/eller en BIN-fil fick skapas"); //detta meddelandet ska flyttas till vyn senare
                 Console.ResetColor();
             }
-
             stream.Close();
         }
-
-
     }
 }
