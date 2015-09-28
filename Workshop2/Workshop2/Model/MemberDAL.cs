@@ -20,6 +20,10 @@ namespace Workshop2.Model
             SaveMembersToBin(); // behöver nog bara spara när man stänger av programmet
         }
 
+        public IReadOnlyCollection<Member> getMemberList()
+        {
+            return memberList.AsReadOnly();
+        }
 
         //http://www.dotnetperls.com/serialize-list
         public void SaveMembersToBin()
@@ -48,7 +52,6 @@ namespace Workshop2.Model
 
             stream.Close();
 
-
             //test ska tas bort. Vill bara se så allt sparas
             int number = 0;
             foreach (Member member in memberList)
@@ -63,8 +66,6 @@ namespace Workshop2.Model
                 Console.WriteLine("════════════════════════════════════════════════════");
             }
             //slut på test
-
-
         }
 
 
