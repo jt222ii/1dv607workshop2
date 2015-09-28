@@ -50,16 +50,6 @@ namespace Workshop2.Controller
                             Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
                         }
                     }
-          
-
-                    ////testkod för ändring av medlem
-                    //c.testInstructions();
-                    //string newName = c.GetUserInput();
-                    //string newLastName = c.GetUserInput();
-                    //string newSSN = c.GetUserInput(); // vill ha int fan men går inte att skriva in null värde för int med "int? newSSN = Convert.ToInt32(c.GetUserInput());"
-                    //m.UpdateMember(newName, newLastName, newSSN);
-                    //Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
-                    ////slut på testkod
 
                     break;
             }

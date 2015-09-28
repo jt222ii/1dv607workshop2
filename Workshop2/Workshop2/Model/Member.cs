@@ -17,6 +17,8 @@ namespace Workshop2.Model
         private string _lastName;
         private int _SSN;
 
+        //nån jävla lista med båtar som varje medlem ska fåååå LIST<BÅET> båtliest;
+
 
          public string FirstName
         {
@@ -69,9 +71,6 @@ namespace Workshop2.Model
              }
          }
 
-
-
-         
          }
     }
 
