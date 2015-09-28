@@ -51,21 +51,6 @@ namespace Workshop2.Model
             }
 
             stream.Close();
-
-            //test ska tas bort. Vill bara se så allt sparas
-            int number = 0;
-            foreach (Member member in memberList)
-            {
-                Console.WriteLine("{4}: {0}, {1}, {2}, UNIKT ID: {3}", 
-                                    member.FirstName, 
-                                    member.LastName, 
-                                    member.SSN, 
-                                    member.MemberID,
-                                    number);
-                number++;
-                Console.WriteLine("════════════════════════════════════════════════════");
-            }
-            //slut på test
         }
 
 

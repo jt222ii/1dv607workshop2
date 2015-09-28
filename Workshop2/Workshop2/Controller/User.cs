@@ -52,6 +52,17 @@ namespace Workshop2.Controller
                     }
 
                     break;
+                case 3:
+                    Console.Clear();
+                    try
+                    {
+                        c.showMembers(mDAL.getMemberList());
+                    }
+                    catch
+                    {
+                        //NÅT GICK FEL NÄR MAN SKULLE HÄMTA ANVÄNDARE SOM EN READONLYLISTA LIKSOM VAFAAAN
+                    }
+                    break;
             }
         }
     }
