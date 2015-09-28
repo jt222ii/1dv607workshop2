@@ -19,7 +19,6 @@ namespace Workshop2.Model
             memberList.Add(member);
             SaveMembersToBin(); // behöver nog bara spara när man stänger av programmet
         }
-
         public IReadOnlyCollection<Member> getMemberList()
         {
             return memberList.AsReadOnly();
@@ -50,6 +49,11 @@ namespace Workshop2.Model
                 Console.ResetColor();
             }
             stream.Close();
+        }
+        public void removeMemberFromList(int choice)
+        {
+            memberList.RemoveAt(choice);
+            SaveMembersToBin();
         }
     }
 }
