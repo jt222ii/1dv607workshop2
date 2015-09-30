@@ -17,7 +17,6 @@ namespace Workshop2.Model
         public void addMemberToList(Member member)
         {
             memberList.Add(member);
-            SaveMembersToBin(); // behöver nog bara spara när man stänger av programmet
         }
         public IReadOnlyCollection<Member> getMemberList()
         {
@@ -53,7 +52,6 @@ namespace Workshop2.Model
         public void removeMemberFromList(int choice)
         {
             memberList.RemoveAt(choice);
-            SaveMembersToBin();
         }
     }
 }
