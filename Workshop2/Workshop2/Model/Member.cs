@@ -70,7 +70,6 @@ namespace Workshop2.Model
                 SSN = ssn;
             }
         }
-
     }
 }
 

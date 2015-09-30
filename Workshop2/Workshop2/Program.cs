@@ -12,7 +12,6 @@ namespace Workshop2
     {
         static void Main(string[] args)
         {
-
             User u = new Controller.User();
             
             u.StartApplication();
