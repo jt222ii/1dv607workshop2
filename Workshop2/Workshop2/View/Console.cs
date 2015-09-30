@@ -17,7 +17,7 @@ namespace Workshop2.View
         public void DisplayInstructions()
         {
             System.Console.WriteLine("Here are instruascthasn");
-            System.Console.WriteLine("Press '0' to quit the application.");
+            System.Console.WriteLine("Press '0' to save & quit the application.");
             System.Console.WriteLine("Press '1' to become the swaglord.");
             System.Console.WriteLine("Press '2' to add a member.");
             System.Console.WriteLine("Press '3' to view members");
@@ -53,31 +53,10 @@ namespace Workshop2.View
             }
         }
 
-        public void showMember(IReadOnlyCollection<Member> list, int choice)
-        {
-            Member member = list.ElementAt(choice);
+        public void showMember(Member member)
+        {         
             System.Console.WriteLine("{0}, {1}", member.FirstName, member.LastName);
-
-            System.Console.WriteLine("What do you want to do? 1 to delete, 2 to change First Name, 3 to change Last Name, 4 to change Social security number");
-            int menuChoice = GetUserChoice();
-            switch (menuChoice)
-            {
-                case 1:
-                    mDAL.removeMemberFromList(choice);
-                    break;
-                case 2:
-                    member.UpdateMember(GetUserInput(), null, null);
-                    break;
-                case 3:
-                    member.UpdateMember(null, GetUserInput(), null);
-                    break;
-                case 4:
-                    member.UpdateMember(null, null, GetUserInput());
-                    break;
-                default:
-                    break;
-            }
-            mDAL.SaveMembersToBin();
+            System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number");
         }
     }
 }

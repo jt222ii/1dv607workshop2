@@ -12,7 +12,8 @@ namespace Workshop2.Model
         {
             Sailboat,
             Motorsailer,
-            KayakCanoe,
+            Kayak,
+            Canoe,
             Other
         }
 
