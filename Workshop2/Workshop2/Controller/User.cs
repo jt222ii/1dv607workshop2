@@ -11,10 +11,11 @@ namespace Workshop2.Controller
     {
         public void StartApplication()
         {
-            View.Console c = new View.Console();
+            
             Member m; 
             Boat b = new Boat();
             MemberDAL mDAL = new MemberDAL();
+            View.Console c = new View.Console(mDAL);
             mDAL.LoadMembersFromBin();
 
             c.DisplayInstructions();
@@ -36,32 +37,34 @@ namespace Workshop2.Controller
                     {
                         try
                         {
-                            string name = c.GetUserInput();
-                            string lastName = c.GetUserInput();
-                            int SSN = Convert.ToInt32(c.GetUserInput());
-                            m = new Member(name, lastName, SSN);
+                            m = new Member(c.GetUserInput(), c.GetUserInput(), Convert.ToInt32(c.GetUserInput()));
                             mDAL.addMemberToList(m);
                             Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
                             break;
                         }
                         catch
                         {
-                            
                             Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
                         }
                     }
-          
-
-                    ////testkod för ändring av medlem
-                    //c.testInstructions();
-                    //string newName = c.GetUserInput();
-                    //string newLastName = c.GetUserInput();
-                    //string newSSN = c.GetUserInput(); // vill ha int fan men går inte att skriva in null värde för int med "int? newSSN = Convert.ToInt32(c.GetUserInput());"
-                    //m.UpdateMember(newName, newLastName, newSSN);
-                    //Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
-                    ////slut på testkod
 
                     break;
+                case 3:
+                    Console.Clear();
+                    //try
+                    //{
+                        c.showMembers(mDAL.getMemberList());
+                        c.showMember(mDAL.getMemberList(), c.GetUserChoice());
+                    //}
+                    //catch
+                    //{
+                    //    //NÅT GICK FEL NÄR MAN SKULLE HÄMTA ANVÄNDARE SOM EN READONLYLISTA LIKSOM VAFAAAN
+                    //}
+                    break;
+                case 4:
+
+                    break;
+                    
             }
         }
     }

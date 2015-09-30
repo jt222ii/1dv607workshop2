@@ -19,7 +19,10 @@ namespace Workshop2.Model
             memberList.Add(member);
             SaveMembersToBin(); // behöver nog bara spara när man stänger av programmet
         }
-
+        public IReadOnlyCollection<Member> getMemberList()
+        {
+            return memberList.AsReadOnly();
+        }
 
         //http://www.dotnetperls.com/serialize-list
         public void SaveMembersToBin()
@@ -45,28 +48,12 @@ namespace Workshop2.Model
                 Console.WriteLine("Listan är tom och/eller en BIN-fil fick skapas"); //detta meddelandet ska flyttas till vyn senare
                 Console.ResetColor();
             }
-
             stream.Close();
-
-
-            //test ska tas bort. Vill bara se så allt sparas
-            int number = 0;
-            foreach (Member member in memberList)
-            {
-                Console.WriteLine("{4}: {0}, {1}, {2}, UNIKT ID: {3}", 
-                                    member.FirstName, 
-                                    member.LastName, 
-                                    member.SSN, 
-                                    member.MemberID,
-                                    number);
-                number++;
-                Console.WriteLine("════════════════════════════════════════════════════");
-            }
-            //slut på test
-
-
         }
-
-
+        public void removeMemberFromList(int choice)
+        {
+            memberList.RemoveAt(choice);
+            SaveMembersToBin();
+        }
     }
 }

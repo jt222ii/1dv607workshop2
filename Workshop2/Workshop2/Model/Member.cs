@@ -17,63 +17,62 @@ namespace Workshop2.Model
         private string _lastName;
         private int _SSN;
 
+        //nån jävla lista med båtar som varje medlem ska fåååå LIST<BÅET> båtliest;
+        //alla medlemmar ska ju ha en båt varför annars är de med i en båtklubb
+        //jävla wannabes
 
-         public string FirstName
+        public string FirstName
         {
-            get {return _firstName; }
+            get { return _firstName; }
             set { _firstName = value; }
         }
 
-         public string LastName
-         {
-             get { return _lastName; }
-             set { _lastName = value; }
-         }
-         public int SSN
-         {
-             get { return _SSN; }
-             set { _SSN = value; }
-         }
-         public string MemberID
-         {
-             get { return _memberID; }
-         }
+        public string LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
+        }
+        public int SSN
+        {
+            get { return _SSN; }
+            set { _SSN = value; }
+        }
+        public string MemberID
+        {
+            get { return _memberID; }
+        }
 
-         public Member(string fName, string lName, int ssn)
-         {
-             MemberDAL mDAL = new MemberDAL();
+        public Member(string fName, string lName, int ssn)
+        {
 
-             if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
-             {
-                 throw new Exception();
-             }
-             FirstName = fName;
-             LastName = lName;
-             SSN = ssn;
-             _memberID = Guid.NewGuid().ToString();            
-         }
+            if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
+            {
+                throw new Exception();
+            }
+            FirstName = fName;
+            LastName = lName;
+            SSN = ssn;
+            _memberID = Guid.NewGuid().ToString();
+        }
 
-         public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
-         {
-             if (!String.IsNullOrWhiteSpace(fName))
-             {
-                 FirstName = fName;
-             }
-             if (!String.IsNullOrWhiteSpace(lName))
-             {
-                 LastName = lName;
-             }
-             if (!String.IsNullOrWhiteSpace(ssn))
-             {
-                 SSN = int.Parse(ssn);
-             }
-         }
+        public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
+        {
+            if (!String.IsNullOrWhiteSpace(fName))
+            {
+                FirstName = fName;
+            }
+            if (!String.IsNullOrWhiteSpace(lName))
+            {
+                LastName = lName;
+            }
+            if (!String.IsNullOrWhiteSpace(ssn))
+            {
+                SSN = int.Parse(ssn);
+            }
+        }
 
-
-
-         
-         }
     }
+}
 
 
 
