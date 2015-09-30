@@ -15,7 +15,7 @@ namespace Workshop2.Model
         private string _memberID;
         private string _firstName;
         private string _lastName;
-        private int _SSN;
+        private string _SSN;
 
         //nån jävla lista med båtar som varje medlem ska fåååå LIST<BÅET> båtliest;
         //alla medlemmar ska ju ha en båt varför annars är de med i en båtklubb
@@ -32,7 +32,7 @@ namespace Workshop2.Model
             get { return _lastName; }
             set { _lastName = value; }
         }
-        public int SSN
+        public string SSN
         {
             get { return _SSN; }
             set { _SSN = value; }
@@ -42,7 +42,7 @@ namespace Workshop2.Model
             get { return _memberID; }
         }
 
-        public Member(string fName, string lName, int ssn)
+        public Member(string fName, string lName, string ssn)
         {
 
             if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
@@ -67,7 +67,7 @@ namespace Workshop2.Model
             }
             if (!String.IsNullOrWhiteSpace(ssn))
             {
-                SSN = int.Parse(ssn);
+                SSN = ssn;
             }
         }
     }

@@ -37,7 +37,7 @@ namespace Workshop2.Controller
                     {
                         try
                         {
-                            m = new Member(c.GetUserInput(), c.GetUserInput(), Convert.ToInt32(c.GetUserInput()));
+                            m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());
                             mDAL.addMemberToList(m);
                             Console.WriteLine("{0} {1} {2}", m.FirstName, m.LastName, m.SSN);
                             break;
