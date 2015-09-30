@@ -58,11 +58,26 @@ namespace Workshop2.View
             Member member = list.ElementAt(choice);
             System.Console.WriteLine("{0}, {1}", member.FirstName, member.LastName);
 
-            System.Console.WriteLine("What do you want to do? 1 for delete");
-            if (GetUserChoice() == 1)
+            System.Console.WriteLine("What do you want to do? 1 to delete, 2 to change First Name, 3 to change Last Name, 4 to change Social security number");
+            int menuChoice = GetUserChoice();
+            switch (menuChoice)
             {
-                mDAL.removeMemberFromList(choice);
+                case 1:
+                    mDAL.removeMemberFromList(choice);
+                    break;
+                case 2:
+                    member.UpdateMember(GetUserInput(), null, null);
+                    break;
+                case 3:
+                    member.UpdateMember(null, GetUserInput(), null);
+                    break;
+                case 4:
+                    member.UpdateMember(null, null, GetUserInput());
+                    break;
+                default:
+                    break;
             }
+            mDAL.SaveMembersToBin();
         }
     }
 }
