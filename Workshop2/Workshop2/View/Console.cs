@@ -44,6 +44,13 @@ namespace Workshop2.View
                                     member.MemberID,
                                     number);
                 number++;
+                int boatNumber = 0;
+                System.Console.WriteLine("Boats: ");
+                foreach (Boat boat in member.BoatList)
+                {
+                    System.Console.WriteLine(string.Format("\t{0}: TYPE: {1}, LENGTH: {2}", boatNumber, boat.BoatType.ToString(), boat.Length));
+                    boatNumber++;
+                }
                System. Console.WriteLine("════════════════════════════════════════════════════");
             }
         }
@@ -64,6 +71,14 @@ namespace Workshop2.View
                 System.Console.WriteLine(String.Format("{0}: {1}",i ,Type));
                 i++;
             }
+        }
+        public void boatMessage()
+        {
+            System.Console.WriteLine("Enter the length of the boat");
+        }
+        public void addMemberMessage() 
+        {
+            System.Console.WriteLine("Enter your first name, last name and social security number(yyyymmdd-XXXX)");
         }
     }
 }

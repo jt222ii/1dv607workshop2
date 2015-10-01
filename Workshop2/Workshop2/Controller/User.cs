@@ -42,6 +42,8 @@ namespace Workshop2.Controller
                         {
                             try
                             {
+                                //fname, lname, ssn
+                                c.addMemberMessage();
                                 m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());
                                 mDAL.addMemberToList(m);
                                 break;
@@ -80,8 +82,12 @@ namespace Workshop2.Controller
                                 case 5:
                                     //ad le boat LOL XD :DDDDD
                                     c.showBoatTypes();
-                                    b = new Boat(int.Parse(c.GetUserInput()));
-                                    
+                                    int typeChoice = int.Parse(c.GetUserInput());
+                                    c.boatMessage();
+                                    double lengthInput = double.Parse(c.GetUserInput());
+                                    b = new Boat(typeChoice, lengthInput);
+                                    member.AddBoat(b);
+
                                    // Workshop2.Model.Boat.type.Canoe;
                                     
                                     break;
