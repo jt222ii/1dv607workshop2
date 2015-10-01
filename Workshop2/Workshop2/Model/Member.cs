@@ -16,26 +16,40 @@ namespace Workshop2.Model
         private string _firstName;
         private string _lastName;
         private string _SSN;
-
-        //nån jävla lista med båtar som varje medlem ska fåååå LIST<BÅET> båtliest;
-        //alla medlemmar ska ju ha en båt varför annars är de med i en båtklubb
-        //jävla wannabes
+        private List<Boat> boatList = new List<Boat>();
 
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set
+            {
+                if (!String.IsNullOrWhiteSpace(value))
+                { _firstName = value; }
+            }
         }
 
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value; }
+            
+            set 
+            {
+                if (!String.IsNullOrWhiteSpace(value))
+                {
+                    _lastName = value;
+                }
+            }
         }
         public string SSN
         {
             get { return _SSN; }
-            set { _SSN = value; }
+            set
+            {
+                if (!String.IsNullOrWhiteSpace(value))
+                {
+                    _SSN = value;
+                }
+            }
         }
         public string MemberID
         {
@@ -54,23 +68,6 @@ namespace Workshop2.Model
             SSN = ssn;
             _memberID = Guid.NewGuid().ToString();
         }
-
-        public void UpdateMember(string fName, string lName, string ssn) //vill kanske ha flera olika så man kan bestämma vad man vill ändra utan att behöva skriva i resten.
-        {
-            if (!String.IsNullOrWhiteSpace(fName))
-            {
-                FirstName = fName;
-            }
-            if (!String.IsNullOrWhiteSpace(lName))
-            {
-                LastName = lName;
-            }
-            if (!String.IsNullOrWhiteSpace(ssn))
-            {
-                SSN = ssn;
-            }
-        }
-
     }
 }
 
