@@ -79,9 +79,9 @@ namespace Workshop2.Controller
                                     break;
                                 case 5:
                                     //ad le boat LOL XD :DDDDD
-                                    
-                                    b = new Boat();
                                     c.showBoatTypes();
+                                    b = new Boat(int.Parse(c.GetUserInput()));
+                                    
                                    // Workshop2.Model.Boat.type.Canoe;
                                     
                                     break;

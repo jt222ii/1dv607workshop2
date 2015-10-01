@@ -17,10 +17,11 @@ namespace Workshop2.Model
             Canoe,
             Other
         }
-
-        public Boat()
+        private type BoatType;
+        public Boat(int i)
         {
- 
+            BoatType = (type)i;
+            Console.WriteLine(BoatType);
         }
 
         private double length;
