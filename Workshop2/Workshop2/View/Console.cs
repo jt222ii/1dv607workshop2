@@ -16,18 +16,15 @@ namespace Workshop2.View
         }
         public void DisplayInstructions()
         {
-            System.Console.WriteLine("Here are instruascthasn");
-            System.Console.WriteLine("Press '0' to save & quit the application.");
-            System.Console.WriteLine("Press '1' to become the swaglord.");
-            System.Console.WriteLine("Press '2' to add a member.");
-            System.Console.WriteLine("Press '3' to view compact memberlist");
-            System.Console.WriteLine("Press '4' to view verbose memberlist");
+            System.Console.Clear();
+            System.Console.WriteLine("╔═══════════════════════════════════════════════╗");
+            System.Console.WriteLine("║                 Welcome!                      ║");
+            System.Console.WriteLine("║Press '1' to save & quit the application.      ║");
+            System.Console.WriteLine("║Press '2' to add a member.                     ║");
+            System.Console.WriteLine("║Press '3' to view compact memberlist           ║");
+            System.Console.WriteLine("║Press '4' to view verbose memberlist           ║");
+            System.Console.WriteLine("╚═══════════════════════════════════════════════╝");
         }
-        public int GetUserChoice()
-        {
-            return Convert.ToInt32(System.Console.ReadKey().KeyChar.ToString());
-        }
-
         public string GetUserInput()
         {
             return System.Console.ReadLine();
@@ -49,6 +46,7 @@ namespace Workshop2.View
                 showMemberBoats(member);
                System. Console.WriteLine("════════════════════════════════════════════════════");
             }
+            listInstruction();
         }
         public void showMembersCompact(IReadOnlyCollection<Member> list)
         {
@@ -65,13 +63,19 @@ namespace Workshop2.View
                 number++;
                 System.Console.WriteLine("════════════════════════════════════════════════════");
             }
+            listInstruction();
+        }
+        public void listInstruction()
+        {
+            System.Console.WriteLine("Choose a member. \"Q\" to go back to main menu(INTE IMPLEMENTERAT ÄNNU)");
         }
 
         public void showMember(Member member)
         {
             System.Console.Clear();
-            System.Console.WriteLine("{0}, {1}", member.FirstName, member.LastName);
+            System.Console.WriteLine("Name: {0} {1} SSN: {2} ID: {3}", member.FirstName, member.LastName, member.SSN, member.MemberID);
             showMemberBoats(member);
+            System.Console.WriteLine("════════════════════════════════════════════════════\n");
             System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number\n 5 - Add a boat\n 6 - Inspect boat");
         }
         public void showMemberBoats(Member member)
@@ -118,5 +122,10 @@ namespace Workshop2.View
             System.Console.WriteLine("Choo Choo Choose a boat");
         }
 
+        public void ErrorMessage()
+        {
+            System.Console.WriteLine("Something have gone wrong. Press any key to continue");
+            System.Console.ReadKey();
+        }
     }
 }

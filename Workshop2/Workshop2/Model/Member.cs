@@ -49,7 +49,7 @@ namespace Workshop2.Model
             {
                 if (!rgx.IsMatch(value))
                 {
-                    throw new Exception("invalid ssn");
+                    throw new Exception();
                 }
                 if (!String.IsNullOrWhiteSpace(value))
                 {

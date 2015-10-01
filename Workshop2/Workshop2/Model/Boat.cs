@@ -43,7 +43,14 @@ namespace Workshop2.Model
             }
             set
             {
-                _boatType = value;
+                if (type.IsDefined(typeof(type), value))
+                {
+                    _boatType = value;
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
         }
 

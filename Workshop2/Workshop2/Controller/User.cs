@@ -16,102 +16,87 @@ namespace Workshop2.Controller
    
         public void StartApplication()
         {
-           
-            mDAL = new MemberDAL();
-            c = new View.Console(mDAL);
-            mDAL.LoadMembersFromBin();
-            while (true)
-            {
-                c.DisplayInstructions();
-                int userInput = c.GetUserChoice();
-                IReadOnlyCollection<Member> list = mDAL.getMemberList();
-                switch (userInput)
+
+
+                mDAL = new MemberDAL();
+                c = new View.Console(mDAL);
+                mDAL.LoadMembersFromBin();
+                while (true)
                 {
-                    case 0:
-                        //KVITT APLLIKASHON
-                        mDAL.SaveMembersToBin();
-                        Environment.Exit(0);
-                        break;
-                    case 1:
-                        //Gör nåt annat
-                        Console.WriteLine("You are now swaglord, congrataruration!");
-                        break;
-                    case 2:
-                        Console.Clear();
-                        while (true)
+                    try
+                    {
+                        c.DisplayInstructions();
+                        int userInput = int.Parse(c.GetUserInput());
+                        IReadOnlyCollection<Member> list = mDAL.getMemberList();
+                        switch (userInput)
                         {
-                            try
-                            {
-                                //fname, lname, ssn
-                                c.addMemberMessage();
-                                m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());
-                                mDAL.addMemberToList(m);
+                            case 1:
+                                mDAL.SaveMembersToBin();
+                                Environment.Exit(0);
                                 break;
-                            }
-                            catch
-                            {
-                                Console.WriteLine("Något var inte korrekt ifyllt"); // får inte ha meddelandet i controllern flytta till view
-                            }
-                        }
+                            case 2:
+                                Console.Clear();
+                                while (true)
+                                {
+                                    try
+                                    {
+                                        //fname, lname, ssn
+                                        c.addMemberMessage();
+                                        m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());
+                                        mDAL.addMemberToList(m);
+                                        break;
+                                    }
+                                    catch
+                                    {
+                                        c.ErrorMessage();
+                                    }
+                                }
 
-                        break;
-                    case 3:
-                        Console.Clear();
-                        try
-                        {
-                            c.showMembersCompact(list);
-                            selectMember(list);
+                                break;
+                            case 3:
+                                Console.Clear();
+                                c.showMembersCompact(list);
+                                selectMember(list);
+                                break;
+                            case 4:
+                                Console.Clear();
+                                c.showMembersVerbose(list);
+                                selectMember(list);
+                                break;
+                            default:
+                                break;
                         }
-                        catch 
-                        {
-                            //nått gick fel
-                        }
-                        break;
-                    case 4:
-                        Console.Clear();
-                        try
-                        {      
-                            c.showMembersVerbose(list);
-                            selectMember(list);
-
-                        }
-                        catch
-                        {
-                            //NÅT GICK FEL NÄR MAN SKULLE HÄMTA ANVÄNDARE SOM EN READONLYLISTA LIKSOM VAFAAAN
-                        }
-                        break;
-
+                    }
+                    catch
+                    {
+                        c.ErrorMessage();
+                    }
                 }
 
-
-
-
-            }
 
         }
 
         public void selectMember(IReadOnlyCollection<Member> list)
         {
-            int choice = c.GetUserChoice();
+            int choice = int.Parse(c.GetUserInput());
             Member member = list.ElementAt(choice);
             c.showMember(member);
             int menuChoice = int.Parse(c.GetUserInput());
             switch (menuChoice)
             {
-                case 1:
+                case 1://remove member
                     mDAL.removeMemberFromList(choice);
                     break;
-                case 2:
+                case 2://change first name
                     member.FirstName = c.GetUserInput();
                     break;
-                case 3:
+                case 3://change last name
                     member.LastName = c.GetUserInput();
                     break;
-                case 4:
+                case 4://change ssn
                     member.SSN = c.GetUserInput();
                     break;
-                case 5:
-                    //ad le boat LOL XD :DDDDD
+                case 5://add a boat
                     c.showBoatTypes();
                     int typeChoice = int.Parse(c.GetUserInput());
                     c.boatLengthPrompt();
@@ -119,7 +104,7 @@ namespace Workshop2.Controller
                     b = new Boat(typeChoice, lengthInput);
                     member.AddBoat(b);
                     break;
-                case 6:
+                case 6://view boats
                     c.chooseBoatPrompt();
                     c.showMemberBoats(member);
                     updateBoat(member);
@@ -148,7 +133,7 @@ namespace Workshop2.Controller
                     break;
                 default:
                     break;
-                //välj något giltigt för fan
+
         }
         }
     }
