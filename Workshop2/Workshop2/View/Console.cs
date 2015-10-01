@@ -22,11 +22,6 @@ namespace Workshop2.View
             System.Console.WriteLine("Press '2' to add a member.");
             System.Console.WriteLine("Press '3' to view members");
         }
-        public void testInstructions() //ska tas bort/ändras
-        {
-            System.Console.WriteLine("change member info (entering nothing changes nothing): \n");
-        }
-
         public int GetUserChoice()
         {
             return Convert.ToInt32(System.Console.ReadKey().KeyChar.ToString());
@@ -57,6 +52,18 @@ namespace Workshop2.View
         {         
             System.Console.WriteLine("{0}, {1}", member.FirstName, member.LastName);
             System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number");
+        }
+
+        public void showBoatTypes()
+        {
+            System.Console.WriteLine("Select a boat type:");
+            var BoatTypes = Enum.GetValues(typeof(Boat.type)).Cast<Boat.type>();
+            int i = 0;
+            foreach (Enum Type in BoatTypes)
+            {
+                System.Console.WriteLine(String.Format("{0}: {1}",i ,Type));
+                i++;
+            }
         }
     }
 }

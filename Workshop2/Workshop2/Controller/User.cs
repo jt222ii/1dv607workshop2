@@ -80,8 +80,15 @@ namespace Workshop2.Controller
                                     member.SSN = c.GetUserInput();
                                     break;
                                 case 5:
+<<<<<<< HEAD
 
                                     b = new Boat(int.Parse(c.GetUserInput()));
+=======
+                                    //ad le boat LOL XD :DDDDD
+                                    
+                                    b = new Boat();
+                                    c.showBoatTypes();
+>>>>>>> master
                                    // Workshop2.Model.Boat.type.Canoe;
                         
                                     
