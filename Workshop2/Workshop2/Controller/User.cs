@@ -18,8 +18,11 @@ namespace Workshop2.Controller
             View.Console c = new View.Console(mDAL);
             mDAL.LoadMembersFromBin();
 
-
-
+            b = new Boat();
+            b.setBoatType(2);
+            //Console.WriteLine(b.Type.ToString());
+            //Console.WriteLine(b.Type.ToString());
+     
             while (true)
             {
                 c.DisplayInstructions();
@@ -78,10 +81,10 @@ namespace Workshop2.Controller
                                     member.SSN = c.GetUserInput();
                                     break;
                                 case 5:
-                                    //ad le boat LOL XD :DDDDD
+                                   
                                     
-                                    b = new Boat();
                                    // Workshop2.Model.Boat.type.Canoe;
+                        
                                     
                                     break;
                                 default:
