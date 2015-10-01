@@ -62,14 +62,6 @@ namespace Workshop2.Model
             get { return _memberID; }
         }
 
-        public List<Boat> BoatList 
-        {
-            get
-            {
-                return boatList;            
-            }
-        }
-
         public Member(string fName, string lName, string ssn)
         {
 
@@ -83,9 +75,28 @@ namespace Workshop2.Model
             _memberID = Guid.NewGuid().ToString();
         }
 
+
+        public List<Boat> BoatList
+        {
+            get
+            {
+                return boatList;
+            }
+        }
         public void AddBoat(Boat boat)
         {
             boatList.Add(boat);
+        }
+
+        public void RemoveBoat(int chosenBoat) 
+        {
+            boatList.RemoveAt(chosenBoat);
+        }
+
+        public void ChangeBoat(Boat chosenBoat, int boatType, double Length)
+        {
+            chosenBoat.Length = Length;
+            chosenBoat.BoatType = (Workshop2.Model.Boat.type)boatType;
         }
     }
 }

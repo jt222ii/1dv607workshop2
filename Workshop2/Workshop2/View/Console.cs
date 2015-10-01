@@ -20,7 +20,8 @@ namespace Workshop2.View
             System.Console.WriteLine("Press '0' to save & quit the application.");
             System.Console.WriteLine("Press '1' to become the swaglord.");
             System.Console.WriteLine("Press '2' to add a member.");
-            System.Console.WriteLine("Press '3' to view members");
+            System.Console.WriteLine("Press '3' to view compact memberlist");
+            System.Console.WriteLine("Press '4' to view verbose memberlist");
         }
         public int GetUserChoice()
         {
@@ -32,7 +33,7 @@ namespace Workshop2.View
             return System.Console.ReadLine();
         }
 
-        public void showMembers(IReadOnlyCollection<Member> list)
+        public void showMembersVerbose(IReadOnlyCollection<Member> list)
         {
             int number = 0;
             foreach (Member member in list)
@@ -44,25 +45,48 @@ namespace Workshop2.View
                                     member.MemberID,
                                     number);
                 number++;
-                int boatNumber = 0;
                 System.Console.WriteLine("Boats: ");
-                foreach (Boat boat in member.BoatList)
-                {
-                    System.Console.WriteLine(string.Format("\t{0}: TYPE: {1}, LENGTH: {2}", boatNumber, boat.BoatType.ToString(), boat.Length));
-                    boatNumber++;
-                }
+                showMemberBoats(member);
                System. Console.WriteLine("════════════════════════════════════════════════════");
+            }
+        }
+        public void showMembersCompact(IReadOnlyCollection<Member> list)
+        {
+            int number = 0;
+            foreach (Member member in list)
+            {
+                int boatAmount = member.BoatList.Count();
+                System.Console.WriteLine("{4}: {0}, {1}, UniqueID: {3}, Boats: {2}",
+                                    member.FirstName,
+                                    member.LastName,
+                                    boatAmount,
+                                    member.MemberID,
+                                    number);
+                number++;
+                System.Console.WriteLine("════════════════════════════════════════════════════");
             }
         }
 
         public void showMember(Member member)
-        {         
+        {
+            System.Console.Clear();
             System.Console.WriteLine("{0}, {1}", member.FirstName, member.LastName);
-            System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number");
+            showMemberBoats(member);
+            System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number\n 5 - Add a boat\n 6 - Inspect boat");
+        }
+        public void showMemberBoats(Member member)
+        {
+            int boatNumber = 0;
+            foreach (Boat boat in member.BoatList)
+            {
+                System.Console.WriteLine(string.Format("\t{0}: TYPE: {1}, LENGTH: {2}m", boatNumber, boat.BoatType.ToString(), boat.Length));
+                boatNumber++;
+            }
         }
 
         public void showBoatTypes()
         {
+            System.Console.Clear();
             System.Console.WriteLine("Select a boat type:");
             var BoatTypes = Enum.GetValues(typeof(Boat.type)).Cast<Boat.type>();
             int i = 0;
@@ -72,13 +96,27 @@ namespace Workshop2.View
                 i++;
             }
         }
-        public void boatMessage()
+        public void showBoat(Boat boat)
         {
-            System.Console.WriteLine("Enter the length of the boat");
+            System.Console.Clear();
+            System.Console.WriteLine(String.Format("TYPE: {0} LENGTH: {1}", boat.BoatType, boat.Length));
+            System.Console.WriteLine("1: Edit Boat\n2: Remove Boat");
+        }
+        public void boatLengthPrompt()
+        {
+            System.Console.Clear();
+            System.Console.WriteLine("Enter the length of the boat(meter)");
         }
         public void addMemberMessage() 
         {
+            System.Console.Clear();
             System.Console.WriteLine("Enter your first name, last name and social security number(yyyymmdd-XXXX)");
         }
+        public void chooseBoatPrompt()
+        {
+            System.Console.Clear();
+            System.Console.WriteLine("Choo Choo Choose a boat");
+        }
+
     }
 }
