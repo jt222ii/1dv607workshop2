@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop2.Model
 {
+    [Serializable]
     class Boat
     {
         public enum type

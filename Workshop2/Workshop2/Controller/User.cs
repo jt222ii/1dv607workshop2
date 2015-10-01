@@ -81,6 +81,7 @@ namespace Workshop2.Controller
                                     //ad le boat LOL XD :DDDDD
                                     
                                     b = new Boat();
+                                    c.showBoatTypes();
                                    // Workshop2.Model.Boat.type.Canoe;
                                     
                                     break;
