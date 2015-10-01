@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Workshop2.Model
@@ -17,6 +18,7 @@ namespace Workshop2.Model
         private string _lastName;
         private string _SSN;
         private List<Boat> boatList = new List<Boat>();
+        private Regex rgx = new Regex("^[12]{1}[90]{1}[0-9]{6}-[0-9]{4}$", RegexOptions.IgnoreCase);
 
         public string FirstName
         {
@@ -45,6 +47,10 @@ namespace Workshop2.Model
             get { return _SSN; }
             set
             {
+                if (!rgx.IsMatch(value))
+                {
+                    throw new Exception("invalid ssn");
+                }
                 if (!String.IsNullOrWhiteSpace(value))
                 {
                     _SSN = value;
@@ -54,6 +60,14 @@ namespace Workshop2.Model
         public string MemberID
         {
             get { return _memberID; }
+        }
+
+        public List<Boat> BoatList 
+        {
+            get
+            {
+                return boatList;            
+            }
         }
 
         public Member(string fName, string lName, string ssn)
@@ -67,6 +81,11 @@ namespace Workshop2.Model
             LastName = lName;
             SSN = ssn;
             _memberID = Guid.NewGuid().ToString();
+        }
+
+        public void AddBoat(Boat boat)
+        {
+            boatList.Add(boat);
         }
     }
 }
