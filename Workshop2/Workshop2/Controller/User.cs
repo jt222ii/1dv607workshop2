@@ -38,7 +38,7 @@ namespace Workshop2.Controller
                                 while (true)
                                 {
                                     //fname, lname, ssn
-                                    c.addMemberMessage();
+                                    c.addMemberInstructionPrompt();
                                     try
                                     {
                                         m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());

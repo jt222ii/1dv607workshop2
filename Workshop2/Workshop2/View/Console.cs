@@ -47,7 +47,7 @@ namespace Workshop2.View
                 showMemberBoats(member);
                System. Console.WriteLine("════════════════════════════════════════════════════");
             }
-            listInstruction();
+            listInstructionPrompt();
         }
         public void showMembersCompact(IReadOnlyCollection<Member> list)
         {
@@ -64,12 +64,9 @@ namespace Workshop2.View
                 number++;
                 System.Console.WriteLine("════════════════════════════════════════════════════");
             }
-            listInstruction();
+            listInstructionPrompt();
         }
-        public void listInstruction()
-        {
-            System.Console.WriteLine("Choose a member. Press 0 to go back to main menu");
-        }
+
 
         public void showMember(Member member)
         {
@@ -113,7 +110,7 @@ namespace Workshop2.View
             System.Console.Clear();
             System.Console.WriteLine("Enter the length of the boat(meter)");
         }
-        public void addMemberMessage() 
+        public void addMemberInstructionPrompt()
         {
             System.Console.Clear();
             System.Console.WriteLine("Enter your first name, last name and social security number(yyyymmdd-XXXX)");
@@ -121,12 +118,39 @@ namespace Workshop2.View
         public void chooseBoatPrompt()
         {
             System.Console.Clear();
-            System.Console.WriteLine("Choo Choo Choose a boat");
+            System.Console.WriteLine("Choo Choo Choose a boat. Press 0 to go back to main menu");
+        }
+        public void listInstructionPrompt()
+        {
+            System.Console.WriteLine("Choose a member. Press 0 to go back to main menu");
         }
         public void ErrorMessage(Exception e)
         {
             System.Console.WriteLine(e.Message);
             System.Console.ReadKey();
         }
+        //public enum Messages 
+        //{
+        //    addMemberInstructions,
+        //    chooseBoatPrompt,
+        //    promptBoatLength,
+        //}
+        //public void instructionMessage(Messages message)
+        //{
+        //    System.Console.Clear();
+        //    switch (message) 
+        //    {
+        //        case Messages.addMemberInstructions:                   
+        //            System.Console.WriteLine("Enter your first name, last name and social security number(yyyymmdd-XXXX)");
+        //            break;
+        //        case Messages.chooseBoatPrompt:
+        //            System.Console.WriteLine("Choo Choo Choose a boat");
+        //            break;
+        //        case Messages.promptBoatLength:
+        //            System.Console.WriteLine("Enter the length of the boat(meter)");
+        //            break;
+        //    }
+        //    System.Console.WriteLine();
+        //}
     }
 }
