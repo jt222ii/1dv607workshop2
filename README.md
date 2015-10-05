@@ -5,6 +5,6 @@ How to run the application:
 
 Once downloaded:
 
-1. go to the folder "Portfolio"
+2. go to the folder "Portfolio"
 
-2. Run the executable "Workshop2".
+3. Run the executable "Workshop2".
