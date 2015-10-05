@@ -29,18 +29,19 @@ namespace Workshop2.Controller
                         IReadOnlyCollection<Member> list = mDAL.getMemberList();
                         switch (userInput)
                         {
-                            case 1:
+                            case 1: // save and quit
                                 mDAL.SaveMembersToBin();
                                 Environment.Exit(0);
                                 break;
-                            case 2:
+                            case 2: // add member
                                 Console.Clear();
                                 while (true)
                                 {
-                                    //fname, lname, ssn
+                                   
                                     c.addMemberInstructionPrompt();
                                     try
                                     {
+                                        //fname, lname, ssn
                                         m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());
                                         mDAL.addMemberToList(m);
                                     }
@@ -52,12 +53,12 @@ namespace Workshop2.Controller
                                 }
 
                                 break;
-                            case 3:
+                            case 3: // show compact list
                                 Console.Clear();
                                 c.showMembersCompact(list);
                                 selectMember(list);
                                 break;
-                            case 4:
+                            case 4: // show verbose list
                                 Console.Clear();
                                 c.showMembersVerbose(list);
                                 selectMember(list);
@@ -126,16 +127,16 @@ namespace Workshop2.Controller
             choice--;
             Boat chosenBoat = member.BoatList.ElementAt(choice);
             c.showBoat(chosenBoat);
-            int boatOption = int.Parse(c.GetUserInput());
+            int boatOption = int.Parse(c.GetUserInput()); 
             switch(boatOption){
-                case 1:
+                case 1: // change boat
                     c.showBoatTypes();
                     int newType = int.Parse(c.GetUserInput())-1;
                     c.boatLengthPrompt();
                     double newLength = double.Parse(c.GetUserInput());
                     member.ChangeBoat(chosenBoat, newType, newLength);
                     break;
-                case 2:
+                case 2: // remove boat
                     member.RemoveBoat(choice);
                     break;
                 default:

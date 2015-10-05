@@ -129,28 +129,5 @@ namespace Workshop2.View
             System.Console.WriteLine(e.Message);
             System.Console.ReadKey();
         }
-        //public enum Messages 
-        //{
-        //    addMemberInstructions,
-        //    chooseBoatPrompt,
-        //    promptBoatLength,
-        //}
-        //public void instructionMessage(Messages message)
-        //{
-        //    System.Console.Clear();
-        //    switch (message) 
-        //    {
-        //        case Messages.addMemberInstructions:                   
-        //            System.Console.WriteLine("Enter your first name, last name and social security number(yyyymmdd-XXXX)");
-        //            break;
-        //        case Messages.chooseBoatPrompt:
-        //            System.Console.WriteLine("Choo Choo Choose a boat");
-        //            break;
-        //        case Messages.promptBoatLength:
-        //            System.Console.WriteLine("Enter the length of the boat(meter)");
-        //            break;
-        //    }
-        //    System.Console.WriteLine();
-        //}
     }
 }
