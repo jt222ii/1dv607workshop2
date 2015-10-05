@@ -80,7 +80,8 @@ namespace Workshop2.Controller
             {
                 return;
             }
-            Member member = list.ElementAt(choice-1);
+            choice--;
+            Member member = list.ElementAt(choice);
             c.showMember(member);
             int menuChoice = int.Parse(c.GetUserInput());
             switch (menuChoice)
