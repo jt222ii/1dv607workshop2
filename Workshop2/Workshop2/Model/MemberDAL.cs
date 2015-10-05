@@ -43,9 +43,7 @@ namespace Workshop2.Model
             }
             catch 
             {
-                Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Listan är tom och/eller en BIN-fil fick skapas"); //detta meddelandet ska flyttas till vyn senare
-                Console.ResetColor();
+                //throw new Exception("en BIN-fil fick skapas");
             }
             stream.Close();
         }

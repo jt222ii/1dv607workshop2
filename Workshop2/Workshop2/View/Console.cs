@@ -9,6 +9,7 @@ namespace Workshop2.View
 {
     class Console
     {
+    
         MemberDAL mDAL;
         public Console(MemberDAL mD)
         {
@@ -32,7 +33,7 @@ namespace Workshop2.View
 
         public void showMembersVerbose(IReadOnlyCollection<Member> list)
         {
-            int number = 0;
+            int number = 1;
             foreach (Member member in list)
             {
                 System.Console.WriteLine("{4}: {0}, {1}, {2}, UNIKT ID: {3}",
@@ -50,7 +51,7 @@ namespace Workshop2.View
         }
         public void showMembersCompact(IReadOnlyCollection<Member> list)
         {
-            int number = 0;
+            int number = 1;
             foreach (Member member in list)
             {
                 int boatAmount = member.BoatList.Count();
@@ -67,7 +68,7 @@ namespace Workshop2.View
         }
         public void listInstruction()
         {
-            System.Console.WriteLine("Choose a member. \"Q\" to go back to main menu(INTE IMPLEMENTERAT ÄNNU)");
+            System.Console.WriteLine("Choose a member. Press 0 to go back to main menu");
         }
 
         public void showMember(Member member)
@@ -76,11 +77,11 @@ namespace Workshop2.View
             System.Console.WriteLine("Name: {0} {1} SSN: {2} ID: {3}", member.FirstName, member.LastName, member.SSN, member.MemberID);
             showMemberBoats(member);
             System.Console.WriteLine("════════════════════════════════════════════════════\n");
-            System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number\n 5 - Add a boat\n 6 - Inspect boat");
+            System.Console.WriteLine("What do you want to do?\n 1 - to delete\n 2 - to change First Name\n 3 - to change Last Name\n 4 - to change Social security number\n 5 - Add a boat\n 6 - Inspect boat\n 0 - Main Menu");
         }
         public void showMemberBoats(Member member)
         {
-            int boatNumber = 0;
+            int boatNumber = 1;
             foreach (Boat boat in member.BoatList)
             {
                 System.Console.WriteLine(string.Format("\t{0}: TYPE: {1}, LENGTH: {2}m", boatNumber, boat.BoatType.ToString(), boat.Length));
@@ -93,7 +94,7 @@ namespace Workshop2.View
             System.Console.Clear();
             System.Console.WriteLine("Select a boat type:");
             var BoatTypes = Enum.GetValues(typeof(Boat.type)).Cast<Boat.type>();
-            int i = 0;
+            int i = 1;
             foreach (Enum Type in BoatTypes)
             {
                 System.Console.WriteLine(String.Format("{0}: {1}",i ,Type));
@@ -104,8 +105,9 @@ namespace Workshop2.View
         {
             System.Console.Clear();
             System.Console.WriteLine(String.Format("TYPE: {0} LENGTH: {1}", boat.BoatType, boat.Length));
-            System.Console.WriteLine("1: Edit Boat\n2: Remove Boat");
+            System.Console.WriteLine("1: Edit Boat\n2: Remove Boat\n0: Main menu");
         }
+
         public void boatLengthPrompt()
         {
             System.Console.Clear();
@@ -121,10 +123,9 @@ namespace Workshop2.View
             System.Console.Clear();
             System.Console.WriteLine("Choo Choo Choose a boat");
         }
-
-        public void ErrorMessage()
+        public void ErrorMessage(Exception e)
         {
-            System.Console.WriteLine("Something have gone wrong. Press any key to continue");
+            System.Console.WriteLine(e.Message);
             System.Console.ReadKey();
         }
     }

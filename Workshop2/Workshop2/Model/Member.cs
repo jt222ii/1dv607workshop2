@@ -25,8 +25,11 @@ namespace Workshop2.Model
             get { return _firstName; }
             set
             {
-                if (!String.IsNullOrWhiteSpace(value))
-                { _firstName = value; }
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException();
+                }
+               _firstName = value; 
             }
         }
 
@@ -36,10 +39,12 @@ namespace Workshop2.Model
             
             set 
             {
-                if (!String.IsNullOrWhiteSpace(value))
+                if (String.IsNullOrWhiteSpace(value))
                 {
-                    _lastName = value;
+                    throw new ArgumentNullException();
                 }
+                _lastName = value;
+                
             }
         }
         public string SSN
@@ -49,12 +54,14 @@ namespace Workshop2.Model
             {
                 if (!rgx.IsMatch(value))
                 {
-                    throw new Exception();
+                    throw new FormatException();
                 }
-                if (!String.IsNullOrWhiteSpace(value))
+                if (String.IsNullOrWhiteSpace(value))
                 {
-                    _SSN = value;
+                    throw new ArgumentNullException();
                 }
+                _SSN = value;
+                
             }
         }
         public string MemberID
@@ -64,11 +71,6 @@ namespace Workshop2.Model
 
         public Member(string fName, string lName, string ssn)
         {
-
-            if (String.IsNullOrWhiteSpace(fName) || String.IsNullOrWhiteSpace(lName))//får inte låta namnen vara null i början. String är nullable
-            {
-                throw new Exception();
-            }
             FirstName = fName;
             LastName = lName;
             SSN = ssn;

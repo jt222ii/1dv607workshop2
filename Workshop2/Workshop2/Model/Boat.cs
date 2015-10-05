@@ -49,7 +49,7 @@ namespace Workshop2.Model
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new ArgumentOutOfRangeException();
                 }
             }
         }

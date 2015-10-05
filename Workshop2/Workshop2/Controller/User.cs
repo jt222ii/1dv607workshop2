@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop2.Model;
@@ -16,8 +17,6 @@ namespace Workshop2.Controller
    
         public void StartApplication()
         {
-
-
                 mDAL = new MemberDAL();
                 c = new View.Console(mDAL);
                 mDAL.LoadMembersFromBin();
@@ -38,18 +37,18 @@ namespace Workshop2.Controller
                                 Console.Clear();
                                 while (true)
                                 {
+                                    //fname, lname, ssn
+                                    c.addMemberMessage();
                                     try
                                     {
-                                        //fname, lname, ssn
-                                        c.addMemberMessage();
                                         m = new Member(c.GetUserInput(), c.GetUserInput(), c.GetUserInput());
                                         mDAL.addMemberToList(m);
-                                        break;
                                     }
                                     catch
                                     {
-                                        c.ErrorMessage();
+                                        throw new ArgumentException();
                                     }
+                                    break;
                                 }
 
                                 break;
@@ -67,19 +66,21 @@ namespace Workshop2.Controller
                                 break;
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        c.ErrorMessage();
+                        c.ErrorMessage(e);
                     }
                 }
-
-
         }
 
         public void selectMember(IReadOnlyCollection<Member> list)
         {
             int choice = int.Parse(c.GetUserInput());
-            Member member = list.ElementAt(choice);
+            if (choice == 0)
+            {
+                return;
+            }
+            Member member = list.ElementAt(choice-1);
             c.showMember(member);
             int menuChoice = int.Parse(c.GetUserInput());
             switch (menuChoice)
@@ -116,20 +117,25 @@ namespace Workshop2.Controller
 
         public void updateBoat(Member member)
         {
-            int boatSpot = int.Parse(c.GetUserInput());
-            Boat chosenBoat = member.BoatList.ElementAt(boatSpot);
+            int choice = int.Parse(c.GetUserInput());
+            if (choice == 0)
+            {
+                return;
+            }
+            choice--;
+            Boat chosenBoat = member.BoatList.ElementAt(choice);
             c.showBoat(chosenBoat);
             int boatOption = int.Parse(c.GetUserInput());
             switch(boatOption){
                 case 1:
                     c.showBoatTypes();
-                    int newType = int.Parse(c.GetUserInput());
+                    int newType = int.Parse(c.GetUserInput())-1;
                     c.boatLengthPrompt();
                     double newLength = double.Parse(c.GetUserInput());
                     member.ChangeBoat(chosenBoat, newType, newLength);
                     break;
                 case 2:
-                    member.RemoveBoat(boatSpot);
+                    member.RemoveBoat(choice);
                     break;
                 default:
                     break;
