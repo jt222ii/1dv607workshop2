@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Workshop2.Controller.User">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <AssociationLine Name="b" Type="Workshop2.Model.Boat" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="4.312" />
+        <Point X="7.25" Y="4.312" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="c" Type="Workshop2.View.Console" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="4.988" />
+        <Point X="5.5" Y="7.375" />
+        <Point X="4.25" Y="7.375" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="m" Type="Workshop2.Model.Member" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="4.988" />
+        <Point X="5.875" Y="7.094" />
+        <Point X="6.25" Y="7.094" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQIAAAAAAAAAAAAAAAAAAAAAIiAAwAAAAAAAAA=</HashCode>
+      <FileName>Controller\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="b" />
+      <Field Name="c" />
+      <Field Name="m" />
+      <Field Name="mDAL" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Workshop2.Model.Boat">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Workshop2.Model.Boat.type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Boat.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAABIAAAAAEAAA=</HashCode>
+      <FileName>Model\Boat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Workshop2.Model.Member">
+    <Position X="6.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAEAAAAAAAIAAAhEAAAQAAABAAAAAQAAgAAABAAg=</HashCode>
+      <FileName>Model\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Workshop2.Model.MemberDAL">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAACgAQAAEAAAAQAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Model\MemberDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Workshop2.View.Console">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <AssociationLine Name="mDAL" Type="Workshop2.Model.MemberDAL" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.375" Y="6.5" />
+        <Point X="3.375" Y="6.017" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQAgAAAAAIAIAEAAAAAABAAAABAAAYAAEAAAAIECAAA=</HashCode>
+      <FileName>View\Console.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mDAL" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
