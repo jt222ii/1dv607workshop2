@@ -8,3 +8,6 @@ Once downloaded:
 2 - go to the folder "Portfolio"
 
 3 - Run the executable "Workshop2".
+
+
+Workshop 1 is located here: https://github.com/ao222qc/1DV607_Workshops
