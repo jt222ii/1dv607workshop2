@@ -18,8 +18,16 @@ namespace Workshop2.Controller
         public void StartApplication()
         {
                 mDAL = new MemberDAL();
-                c = new View.Console(mDAL);
-                mDAL.LoadMembersFromBin();
+                c = new View.Console();
+                try
+                {
+                    mDAL.LoadMembersFromBin();
+                }
+                catch (Exception e)
+                {
+                    
+                    c.ErrorMessage(e);
+                }
                 while (true)
                 {
                     try
@@ -36,8 +44,7 @@ namespace Workshop2.Controller
                             case 2: // add member
                                 Console.Clear();
                                 while (true)
-                                {
-                                   
+                                {         
                                     c.addMemberInstructionPrompt();
                                     try
                                     {
@@ -104,7 +111,7 @@ namespace Workshop2.Controller
                     int typeChoice = int.Parse(c.GetUserInput());
                     c.boatLengthPrompt();
                     double lengthInput = double.Parse(c.GetUserInput());
-                    b = new Boat(typeChoice, lengthInput);
+                    b = new Boat(typeChoice-1, lengthInput);
                     member.AddBoat(b);
                     break;
                 case 6://view boats

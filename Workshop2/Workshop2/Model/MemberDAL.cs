@@ -43,7 +43,8 @@ namespace Workshop2.Model
             }
             catch 
             {
-                //throw new Exception("en BIN-fil fick skapas");
+                stream.Close();
+                throw new Exception("Could not find BIN, a new file will be created.");
             }
             stream.Close();
         }

@@ -9,12 +9,28 @@ namespace Workshop2.View
 {
     class Console
     {
-    
-        MemberDAL mDAL;
-        public Console(MemberDAL mD)
+        internal Workshop2.Model.Member Member
         {
-            mDAL = mD;
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
+
+        internal Workshop2.Model.Boat Boat
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+    
         public void DisplayInstructions()
         {
             System.Console.Clear();
